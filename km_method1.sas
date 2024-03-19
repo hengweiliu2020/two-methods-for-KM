@@ -47,22 +47,28 @@ by stratum tatrisk;
 data _null_;
 set quart;
 where stratum=1 and percent=50;
+if estimate>.z then estc=put(estimate,5.1); 
+else estc='NE'; 
+
 if lowerlimit>.z then lowerc=put(lowerlimit,5.1);
 else lowerc='NE';
-if upperlimit>.z then upperc=put(lowerlimit,5.1);
+if upperlimit>.z then upperc=put(upperlimit,5.1);
 else upperc='NE';
-mci=compbl(put(estimate,5.1)||'('||lowerc||','||upperc||')');
+mci=compbl(estc||'('||lowerc||','||upperc||')');
 call symput('grp1', mci); 
 run;
 
 data _null_;
 set quart;
 where stratum=2 and percent=50;
+if estimate>.z then estc=put(estimate,5.1); 
+else estc='NE'; 
+
 if lowerlimit>.z then lowerc=put(lowerlimit,5.1);
 else lowerc='NE';
-if upperlimit>.z then upperc=put(lowerlimit,5.1);
+if upperlimit>.z then upperc=put(upperlimit,5.1);
 else upperc='NE';
-mci=compbl(put(estimate,5.1)||'('||lowerc||','||upperc||')');
+mci=compbl(estc||'('||lowerc||','||upperc||')');
 call symput('grp2', mci); 
 run;
 
