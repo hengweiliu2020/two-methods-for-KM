@@ -97,7 +97,7 @@ proc sgplot data=survivalplot  dattrmap=attrmap;
    keylegend 'Censor' "Trt" /location=inside position=bottomleft across=1 noborder;
    xaxistable  grp0 grp1 grp2/location=outside label x=tatrisk;
    inset   ("grp1"="&grp1"
-            "grp2"="&grp2")/title="Median (CI)" position=NE opaque border;
+            "grp2"="&grp2")/title="Median (CI)" position=topright opaque border;
     
 run;
 
